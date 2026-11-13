@@ -1,0 +1,6 @@
+{
+  "name": "WebWorkstation",
+  "description": "Ruang kerja berbasis web bergaya sistem operasi desktop di dalam browser dengan Virtual File System, Window Manager, App Store, dan sinkronisasi workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

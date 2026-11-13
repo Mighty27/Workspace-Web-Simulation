@@ -1,0 +1,148 @@
+/* Design System CSS Variables (Tokens) — Bagian A.2, A.3, A.6 */
+:root {
+  /* Colors - Light Mode */
+  --bg-canvas: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.92);
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-muted: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.86);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-on-accent: #ffffff;
+
+  --accent-primary: #0284c7;
+  --accent-primary-hover: #0369a1;
+  --accent-soft: rgba(2, 132, 199, 0.12);
+  --accent-border: rgba(2, 132, 199, 0.38);
+
+  --status-success: #059669;
+  --status-success-soft: rgba(5, 150, 105, 0.14);
+  --status-warning: #d97706;
+  --status-warning-soft: rgba(217, 119, 6, 0.15);
+  --status-danger: #dc2626;
+  --status-danger-soft: rgba(220, 38, 38, 0.14);
+
+  --border-subtle: rgba(148, 163, 184, 0.28);
+  --border-strong: rgba(100, 116, 139, 0.45);
+  --focus-ring: 0 0 0 2px #0284c7;
+
+  /* Note Card Accent Backgrounds (Light) */
+  --note-bg-default: #ffffff;
+  --note-bg-sky: #f0f9ff;
+  --note-bg-amber: #fffbeb;
+  --note-bg-emerald: #ecfdf5;
+  --note-bg-rose: #fff1f2;
+
+  /* Border Radius Tokens */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 16px;
+  --radius-xl: 20px;
+
+  /* Spacing Tokens */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Font Size Tokens */
+  --font-xs: 0.75rem;
+  --font-sm: 0.8125rem;
+  --font-base: 0.875rem;
+  --font-lg: 1rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.75rem;
+
+  /* Shadow Tokens */
+  --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 16px 36px -6px rgba(15, 23, 42, 0.18), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+
+  /* Transition Duration Tokens (Max 200ms per Bagian E.2) */
+  --duration-fast: 120ms;
+  --duration-normal: 180ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  --bg-canvas: #020617;
+  --bg-surface: rgba(15, 23, 42, 0.9);
+  --bg-surface-elevated: #0f172a;
+  --bg-surface-muted: #1e293b;
+  --bg-glass: rgba(15, 23, 42, 0.86);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-on-accent: #ffffff;
+
+  --accent-primary: #0ea5e9;
+  --accent-primary-hover: #38bdf8;
+  --accent-soft: rgba(14, 165, 233, 0.16);
+  --accent-border: rgba(56, 189, 248, 0.42);
+
+  --status-success: #10b981;
+  --status-success-soft: rgba(16, 185, 129, 0.18);
+  --status-warning: #f59e0b;
+  --status-warning-soft: rgba(245, 158, 11, 0.18);
+  --status-danger: #f43f5e;
+  --status-danger-soft: rgba(244, 63, 94, 0.18);
+
+  --border-subtle: rgba(148, 163, 184, 0.18);
+  --border-strong: rgba(148, 163, 184, 0.36);
+  --focus-ring: 0 0 0 2px #38bdf8;
+
+  /* Note Card Accent Backgrounds (Dark) */
+  --note-bg-default: rgba(15, 23, 42, 0.92);
+  --note-bg-sky: rgba(12, 74, 110, 0.38);
+  --note-bg-amber: rgba(120, 53, 15, 0.36);
+  --note-bg-emerald: rgba(6, 78, 59, 0.36);
+  --note-bg-rose: rgba(136, 19, 55, 0.36);
+
+  --shadow-card: 0 6px 20px -2px rgba(2, 6, 23, 0.48), 0 1px 4px 0 rgba(2, 6, 23, 0.35);
+  --shadow-elevated: 0 20px 44px -8px rgba(2, 6, 23, 0.72), 0 6px 16px -4px rgba(2, 6, 23, 0.5);
+}
+
+/* Respect prefers-reduced-motion (Bagian A.6) */
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  .dark {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Uniform Widget Card Utility Classes using Design Tokens */
+.ws-widget-card {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.ws-widget-card:hover {
+  border-color: var(--border-strong);
+}
+
+.ws-focusable:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
